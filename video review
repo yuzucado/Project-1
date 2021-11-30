@@ -1,0 +1,36 @@
+CREATE TABLE jl_videos(
+video_id serial PRIMARY KEY,
+video_title VARCHAR (150) NOT NULL,
+length_min INTEGER,
+url VARCHAR (250) NOT NULL
+);
+
+INSERT INTO jl_videos (video_title, length_min, url)
+VALUES
+('What is SQL? In 4 minutes for beginners','4','http://youtu.be/27axs9dO7AE'),
+('Learn Basic SQL in 15 Minutes','17','http://youtu.be/kbKty5ZVKMY'),
+('What is Database & SQL','6','http://youtu.be/FR4QleZaPeM');
+
+
+
+CREATE TABLE jl_reviewers(
+reviewer_id serial PRIMARY KEY,
+reviewer_name VARCHAR(50) NOT NULL,
+rating INTEGER,
+video_id INTEGER,
+review VARCHAR (400) NOT NULL
+);
+
+INSERT INTO jl_reviewers (reviewer_name, rating, video_id, review)
+VALUES
+('Joey','3','1','Good introduction.'),
+('Mary','4','1','Very helpful.'),
+('Akaso','3','2','Loved it!'),
+('Keita','4','2','It was really good.'),
+('Brittany','5','3','Great video'),
+('Susan','2','3','A bit too simple.');
+
+
+SELECT * FROM jl_videos
+LEFT OUTER JOIN jl_reviewers
+ON jl_videos.video_id = jl_reviewers.video_id;
