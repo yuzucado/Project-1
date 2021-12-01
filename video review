@@ -12,7 +12,6 @@ VALUES
 ('What is Database & SQL','6','http://youtu.be/FR4QleZaPeM');
 
 
-
 CREATE TABLE jl_reviewers(
 reviewer_id serial PRIMARY KEY,
 reviewer_name VARCHAR(50) NOT NULL,
